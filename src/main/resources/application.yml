@@ -1,0 +1,24 @@
+server:
+  port: 9999      #设置访问端口号
+  servlet:
+    jsp:
+      init-parameters:
+        development: true     #开启jsp热部署
+
+spring:
+  profiles:
+    active: dev     #读取配置文件    开发环境：dev     生产环境：prod
+  mvc:
+    view:
+      prefix: /           #渲染jsp前缀
+      suffix: .jsp        #渲染jsp后缀
+  datasource:
+    type: org.apache.commons.dbcp.BasicDataSource       #配置数据源类型
+    driver-class-name: com.mysql.jdbc.Driver           #配置mysql数据库
+    url: jdbc:mysql://localhost:3306/dangdang           #配置mysql连接url
+    username: root                                      #数据库用户名
+    password: zsq                                       #数据库密码
+
+mybatis:
+  type-aliases-package: com.zsq.entity                      #给实体类起别名
+  mapper-locations: classpath:com/zsq/mapper/*Mapper.yml    #自动扫描mapper文件
